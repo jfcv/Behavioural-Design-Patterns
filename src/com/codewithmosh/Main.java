@@ -1,30 +1,36 @@
 package com.codewithmosh;
 
-import com.codewithmosh.memento.Editor;
-import com.codewithmosh.memento.History;
+import com.codewithmosh.memento.exercise.Document;
+import com.codewithmosh.memento.exercise.History;
 
 public class Main {
 
     public static void main(String[] args) {
-        var editor = new Editor();
+        var document = new Document();
         var history = new History();
 
-        editor.setContent("a");
-        history.push(editor.createState());
-        System.out.println(editor.getContent());
+        document.setContent("agua");
+        document.setFontName("Arial");
+        document.setFontSize(12);
+        history.push(document.createState());
+        document.printCurrentDocument();
 
-        editor.setContent("b");
-        history.push(editor.createState());
-        System.out.println(editor.getContent());
+        document.setContent("tierra");
+        document.setFontName("Fontain");
+        document.setFontSize(24);
+        history.push(document.createState());
+        document.printCurrentDocument();
 
-        editor.setContent("c");
-        System.out.println(editor.getContent());
+        document.setContent("aire");
+        document.setFontName("Fluff");
+        document.setFontSize(46);
+        document.printCurrentDocument();
 
-        editor.restore(history.pop());
-        System.out.println(editor.getContent());
+        document.restore(history.pop());
+        document.printCurrentDocument();
 
-        editor.restore(history.pop());
-        System.out.println(editor.getContent());
+        document.restore(history.pop());
+        document.printCurrentDocument();
     }
 
 }
