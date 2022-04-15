@@ -6,22 +6,27 @@ import com.codewithmosh.state.BrushTool;
 import com.codewithmosh.state.Canvas;
 import com.codewithmosh.state.EraserTool;
 import com.codewithmosh.state.SelectionTool;
+import com.codewithmosh.state.exercise.*;
 
 
 public class Main {
     public static void main(String[] args) {
-        var canvas =  new Canvas();
+        var directionService = new DirectionService();
 
-        canvas.setCurrentTool(new SelectionTool());
-        canvas.mouseDown();
-        canvas.mouseUp();
+        directionService.setTravelMode(new Driving());
+        directionService.getEta();
+        directionService.getDirection();
 
-        canvas.setCurrentTool(new BrushTool());
-        canvas.mouseDown();
-        canvas.mouseUp();
+        directionService.setTravelMode(new Bicycling());
+        directionService.getEta();
+        directionService.getDirection();
 
-        canvas.setCurrentTool(new EraserTool());
-        canvas.mouseDown();
-        canvas.mouseUp();
+        directionService.setTravelMode(new Transit());
+        directionService.getEta();
+        directionService.getDirection();
+
+        directionService.setTravelMode(new Walking());
+        directionService.getEta();
+        directionService.getDirection();
     }
 }
