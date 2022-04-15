@@ -2,35 +2,26 @@ package com.codewithmosh;
 
 import com.codewithmosh.memento.exercise.Document;
 import com.codewithmosh.memento.exercise.History;
+import com.codewithmosh.state.BrushTool;
+import com.codewithmosh.state.Canvas;
+import com.codewithmosh.state.EraserTool;
+import com.codewithmosh.state.SelectionTool;
+
 
 public class Main {
-
     public static void main(String[] args) {
-        var document = new Document();
-        var history = new History();
+        var canvas =  new Canvas();
 
-        document.setContent("agua");
-        document.setFontName("Arial");
-        document.setFontSize(12);
-        history.push(document.createState());
-        document.printCurrentDocument();
+        canvas.setCurrentTool(new SelectionTool());
+        canvas.mouseDown();
+        canvas.mouseUp();
 
-        document.setContent("tierra");
-        document.setFontName("Fontain");
-        document.setFontSize(24);
-        history.push(document.createState());
-        document.printCurrentDocument();
+        canvas.setCurrentTool(new BrushTool());
+        canvas.mouseDown();
+        canvas.mouseUp();
 
-        document.setContent("aire");
-        document.setFontName("Fluff");
-        document.setFontSize(46);
-        document.printCurrentDocument();
-
-        document.restore(history.pop());
-        document.printCurrentDocument();
-
-        document.restore(history.pop());
-        document.printCurrentDocument();
+        canvas.setCurrentTool(new EraserTool());
+        canvas.mouseDown();
+        canvas.mouseUp();
     }
-
 }
