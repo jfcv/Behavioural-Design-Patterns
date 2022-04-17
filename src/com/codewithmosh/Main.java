@@ -1,23 +1,15 @@
 package com.codewithmosh;
 
-import com.codewithmosh.strategy.*;
-import com.codewithmosh.strategy.compressors.JpegCompressor;
-import com.codewithmosh.strategy.compressors.PngCompressor;
-import com.codewithmosh.strategy.exercise.AesEncryption;
-import com.codewithmosh.strategy.exercise.ChatClient;
-import com.codewithmosh.strategy.exercise.DesEncryption;
-import com.codewithmosh.strategy.filters.BlackAndWhiteFilter;
-import com.codewithmosh.strategy.filters.HighContrastFilter;
-import com.codewithmosh.template.GenerateReportTask;
-import com.codewithmosh.template.TransferMoneyTask;
+import com.codewithmosh.template.exercise.RoutineTwo;
+import com.codewithmosh.template.exercise.RoutineOne;
 
 
 public class Main {
     public static void main(String[] args) {
-        var transferMoneyTask = new TransferMoneyTask();
-        var generateReportTask = new GenerateReportTask();
+        var routineOne = new RoutineOne();
+        var routineTwo = new RoutineTwo();
 
-        transferMoneyTask.execute();
-        generateReportTask.execute();
+        routineOne.close();
+        routineTwo.close();
     }
 }
