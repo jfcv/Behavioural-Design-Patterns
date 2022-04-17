@@ -8,15 +8,16 @@ import com.codewithmosh.strategy.exercise.ChatClient;
 import com.codewithmosh.strategy.exercise.DesEncryption;
 import com.codewithmosh.strategy.filters.BlackAndWhiteFilter;
 import com.codewithmosh.strategy.filters.HighContrastFilter;
+import com.codewithmosh.template.GenerateReportTask;
+import com.codewithmosh.template.TransferMoneyTask;
 
 
 public class Main {
     public static void main(String[] args) {
-        var chatClient = new ChatClient();
-        var aesEncryption = new AesEncryption();
-        var desEncryption = new DesEncryption();
+        var transferMoneyTask = new TransferMoneyTask();
+        var generateReportTask = new GenerateReportTask();
 
-        chatClient.send(aesEncryption,"hola");
-        chatClient.send(desEncryption, "qué tal?");
+        transferMoneyTask.execute();
+        generateReportTask.execute();
     }
 }
